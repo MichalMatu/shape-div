@@ -1,0 +1,108 @@
+:root {
+    --primary-color: #eaeaea;
+    --background-color: #2b2b2b;
+    --tertiary-color: #0f0329;
+    --quaternary-color: #14121c;
+    --quinary-color: #ffffff;
+    --default-font: 'Open Sans', sans-serif;
+}
+
+body {
+    font-family: var(--default-font);
+    font-size: 16px;
+    line-height: 1.5;
+    color: var(--primary-color);
+    background: var(--background-color) ;
+    margin: 0;
+    overflow-x: hidden;
+}
+
+section {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 300px;
+    padding: 50px 20vw;
+}
+
+.curve {
+    position: absolute;
+    height: 225px;
+    width: 100%;
+    bottom: 0;
+}
+
+
+.curve::before {
+    content: '';
+    display: block;
+    position: absolute;
+    border-radius: 100% 50%;
+    width: 55%;
+    height: 100%;
+    background-color: var(--tertiary-color);
+    transform: translate(85%, 60%);
+}
+
+.curve::after {
+    content: '';
+    display: block;
+    position: absolute;
+    border-radius: 100% 50%;
+    width: 55%;
+    height: 100%;
+    background-color: var(--background-color);
+    transform: translate(-4%, 40%);
+    z-index: 1;
+}
+
+.blue {
+    background-color: var(--tertiary-color);
+    display: flex;
+    justify-content: center;
+}
+
+.bubble {
+    background-color: var(--tertiary-color);
+    z-index: -1;
+    display: flex;
+    justify-content: center;
+}
+
+.bubble::after {
+    content: '';
+    border-top-left-radius: 50% 100%;
+    border-top-right-radius: 50% 100%;
+    position: absolute;
+    bottom: 0;
+    height: 85%;
+    width: 100%;
+    background: var(--quaternary-color);
+    z-index: -1;
+}
+
+.dark {
+    background-color: var(--quaternary-color);
+}
+
+.wave {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+}
+
+.wave svg {
+    position: relative;
+    display: block;
+    width: calc(100% + 1.3px);
+    height: 100px;
+    transform: rotateY(180deg);
+}
+
+.wave .shape-fill {
+    fill: #14121C;
+}
