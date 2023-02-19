@@ -3,7 +3,7 @@
     --background-color: #2b2b2b;
     --tertiary-color: #0f0329;
     --quaternary-color: #14121c;
-    --quinary-color: #ffffff;
+    --quinary-color: #0066FF;
     --default-font: 'Open Sans', sans-serif;
 }
 
@@ -106,3 +106,25 @@ section {
 .wave .shape-fill {
     fill: #14121C;
 }
+
+.spacer {
+    aspect-ratio: 960/300;
+    width: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+.layer1 {
+    background-image: url(./wave-haikei.svg);
+}
+
+.light_blue {
+    background-color: var(--quinary-color);
+}
+
+.flip {
+    transform: rotate(180deg);
+    transform: translateX(-50%);
+}
+
