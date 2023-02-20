@@ -17,6 +17,16 @@ body {
     overflow-x: hidden;
 }
 
+a {
+    color: var(--primary-color);
+    text-decoration: none;
+}
+
+a:hover {
+    color: var(--tertiary-color);
+    text-shadow: var(--quinary-color) 0px 0px 10px;
+}
+
 section {
     position: relative;
     display: flex;
@@ -108,7 +118,7 @@ section {
 }
 
 .spacer {
-    aspect-ratio: 960/300;
+    aspect-ratio: 960/150;
     width: 100%;
     background-repeat: no-repeat;
     background-position: center;
