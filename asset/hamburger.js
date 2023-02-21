@@ -12,3 +12,16 @@ icon.addEventListener('click', function() {
   nav.classList.toggle('show');
   blue.classList.toggle('slide');
 });
+
+// select class ball
+var ball = document.querySelector('.ball');
+
+// add event listener to ball class and listen for mousemove
+ball.addEventListener('mousemove', function(e) {
+// move the ball away from the mouse to opposite side as mouse moves
+  ball.style.left = e.pageX + 'px';
+  ball.style.top = e.pageY + 'px';
+});
+
+
+

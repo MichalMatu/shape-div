@@ -216,3 +216,17 @@ nav.show {
     top: 40%;
   }
 }
+
+/* div class run create ball 75px x 75 px with red background */
+.ball {
+    width: 75px;
+    height: 75px;
+    background: red;
+    border-radius: 50%;
+    animation: move 2s linear infinite;
+    /* position it below Home */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+
+}

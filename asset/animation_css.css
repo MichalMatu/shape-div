@@ -7,12 +7,13 @@
     --default-font: 'Open Sans', sans-serif;
 
 }
+
 body {
     font-family: var(--default-font);
     font-size: 16px;
     line-height: 1.5;
     color: var(--primary-color);
-    background: var(--background-color) ;
+    background: var(--background-color);
     margin: 0;
     overflow-x: hidden;
     display: flex;
@@ -21,10 +22,12 @@ body {
     min-height: 100vh;
 
 }
+
 a {
     color: var(--primary-color);
     text-decoration: none;
 }
+
 a:hover {
     color: var(--tertiary-color);
     text-shadow: var(--quinary-color) 0px 0px 10px;
@@ -34,11 +37,13 @@ a:hover {
     0% {
         transform: translateX(-150px);
     }
+
     50% {
         /* rotate 90 */
         transform: translateX(100px) rotate(90deg);
 
     }
+
     100% {
         transform: translateX(-150px);
     }
@@ -53,6 +58,13 @@ a:hover {
     display: flex;
     justify-content: center;
     align-items: center;
+
+    -webkit-user-select: none;
+    /* Safari */
+    -ms-user-select: none;
+    /* IE 10 and IE 11 */
+    user-select: none;
+    /* Standard syntax */
 }
 
 .box:hover {
@@ -63,8 +75,16 @@ a:hover {
     background-color: red;
 }
 
-.big{
+.big {
     width: 250px;
     height: 250px;
 }
 
+.info {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--tertiary-color);
+    /* move p to top  */
+    position: relative;
+    top: -250px;
+}
