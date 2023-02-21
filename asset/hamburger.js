@@ -12,4 +12,3 @@ icon.addEventListener('click', function() {
   nav.classList.toggle('show');
   blue.classList.toggle('slide');
 });
-
