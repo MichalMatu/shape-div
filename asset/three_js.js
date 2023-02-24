@@ -137,14 +137,12 @@ canvas.addEventListener("click", () => {
   window.location.href = "index.html";
 });
 
-// zoom in and out with mouse wheel
+// zoom in and out with mouse wheel in direction of the camera
 canvas.addEventListener("wheel", (event) => {
-  if (event.deltaY > 0) {
-    camera.position.z += 1;
-  } else {
-    camera.position.z -= 1;
-  }
+  camera.position.z += event.deltaY * 0.01;
 });
+
+
 
 // Resize window
 window.addEventListener("resize", () => {
