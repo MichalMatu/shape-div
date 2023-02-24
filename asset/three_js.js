@@ -139,7 +139,16 @@ canvas.addEventListener("click", () => {
 
 // zoom in and out with mouse wheel in direction of the camera
 canvas.addEventListener("wheel", (event) => {
-  camera.position.z += event.deltaY * 0.01;
+  camera.position.y += event.deltaY * 0.01;
+  camera.position.x += event.deltaY * 0.01;
+  camera.position.z = Math.max(0.1, camera.position.z);
+// change light position with camera position
+  light.position.y = camera.position.y;
+  light.position.x = camera.position.x;
+  light.position.z = camera.position.z;
+  console.log(camera.position);
+
+  
 });
 
 
