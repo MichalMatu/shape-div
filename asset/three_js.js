@@ -10,7 +10,8 @@ const renderer = new THREE.WebGLRenderer({ antialias: true });
 renderer.setSize(window.innerWidth, window.innerHeight);
 document.body.appendChild(renderer.domElement);
 
-const cubeGeometry = new THREE.BoxGeometry(15, 15, 15);
+
+
 
 const colorRed = new THREE.Color(0xff0000);
 const colorGreen = new THREE.Color(0x00ff00);
@@ -52,10 +53,31 @@ const cubeMaterials = [
   }), // Right
 ];
 
-const cube = new THREE.Mesh(cubeGeometry, cubeMaterials);
-cube.position.set(0, 0, -50); // set cube position
 
+const cubeGeometry = new THREE.BoxGeometry(15, 15, 15);
+const cube = new THREE.Mesh(cubeGeometry, cubeMaterials);
+cube.position.set(0, 10, -50); // set cube position
 scene.add(cube);
+
+
+const geometry = new THREE.TorusKnotGeometry( 20, 3, 100, 16 );
+const material = new THREE.MeshBasicMaterial( { color: 0x000000, opacity: 0.7, wireframe: true, side: THREE.DoubleSide } );
+const torusKnot = new THREE.Mesh( geometry, material );
+
+torusKnot.position.set(0, -50, -100); // set cube position
+scene.add( torusKnot );
+
+function animate_torus () {
+  requestAnimationFrame( animate_torus );
+
+  torusKnot.rotation.x -= 0.01;
+  torusKnot.rotation.y -= 0.01;
+
+  renderer.render( scene, camera );
+}
+
+animate_torus();
+
 
 const light = new THREE.PointLight(0xffffff, 1, 100);
 light.position.set(20, 20, 20);
