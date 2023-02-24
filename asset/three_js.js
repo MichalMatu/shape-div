@@ -44,6 +44,47 @@ camera.position.z = 1;
 camera.position.y = 1;
 camera.position.x = 1;
 
+
+
+
+
+// Add text to the cube
+const fontLoader = new THREE.FontLoader();
+const textMaterial = new THREE.MeshPhongMaterial({ color: 0xffffff, shininess: 100, specular: 0x111111 });
+fontLoader.load('https://threejs.org/examples/fonts/helvetiker_regular.typeface.json', function (font) {
+  const textGeometry = new THREE.TextGeometry('HOME', {
+    font: font,
+    size: 2,
+    height: 0.5,
+    curveSegments: 12,
+    bevelEnabled: true,
+    bevelThickness: 0.1,
+    bevelSize: 0.1,
+    bevelOffset: 0,
+    bevelSegments: 5
+  });
+  const textMeshFront = new THREE.Mesh(textGeometry, textMaterial);
+  // position text in the middle of the cube
+  textMeshFront.position.x = -2.5;
+  textMeshFront.position.y = 0;
+  textMeshFront.position.z = 7.5;
+
+cube.add(textMeshFront);
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 function animate() {
   requestAnimationFrame(animate);
 
@@ -59,6 +100,7 @@ const canvas = document.getElementsByTagName('canvas')[0];
 canvas.addEventListener('click', () => {
   window.location.href = 'index.html';
 });
+
 
 // Resize window
 window.addEventListener('resize', () => {
