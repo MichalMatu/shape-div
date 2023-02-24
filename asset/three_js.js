@@ -45,9 +45,6 @@ camera.position.y = 1;
 camera.position.x = 1;
 
 
-
-
-
 // Add text to the cube
 const fontLoader = new THREE.FontLoader();
 const textMaterial = new THREE.MeshPhongMaterial({ color: 0xffffff, shininess: 100, specular: 0x111111 });
@@ -71,18 +68,6 @@ fontLoader.load('https://threejs.org/examples/fonts/helvetiker_regular.typeface.
 
 cube.add(textMeshFront);
 });
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 function animate() {
