@@ -20,12 +20,36 @@ const colorMagenta = new THREE.Color(0xff00ff);
 const colorCyan = new THREE.Color(0x00ffff);
 
 const cubeMaterials = [
-  new THREE.MeshPhongMaterial({ color: colorRed, shininess: 100, specular: 0x111111 }), // Front
-  new THREE.MeshPhongMaterial({ color: colorGreen, shininess: 100, specular: 0x111111 }), // Back
-  new THREE.MeshPhongMaterial({ color: colorBlue, shininess: 100, specular: 0x111111 }), // Top
-  new THREE.MeshPhongMaterial({ color: colorYellow, shininess: 100, specular: 0x111111 }), // Bottom
-  new THREE.MeshPhongMaterial({ color: colorMagenta, shininess: 100, specular: 0x111111 }), // Left
-  new THREE.MeshPhongMaterial({ color: colorCyan, shininess: 100, specular: 0x111111 }), // Right
+  new THREE.MeshPhongMaterial({
+    color: colorRed,
+    shininess: 100,
+    specular: 0x111111,
+  }), // Front
+  new THREE.MeshPhongMaterial({
+    color: colorGreen,
+    shininess: 100,
+    specular: 0x111111,
+  }), // Back
+  new THREE.MeshPhongMaterial({
+    color: colorBlue,
+    shininess: 100,
+    specular: 0x111111,
+  }), // Top
+  new THREE.MeshPhongMaterial({
+    color: colorYellow,
+    shininess: 100,
+    specular: 0x111111,
+  }), // Bottom
+  new THREE.MeshPhongMaterial({
+    color: colorMagenta,
+    shininess: 100,
+    specular: 0x111111,
+  }), // Left
+  new THREE.MeshPhongMaterial({
+    color: colorCyan,
+    shininess: 100,
+    specular: 0x111111,
+  }), // Right
 ];
 
 const cube = new THREE.Mesh(cubeGeometry, cubeMaterials);
@@ -44,31 +68,36 @@ camera.position.z = 1;
 camera.position.y = 1;
 camera.position.x = 1;
 
-
 // Add text to the cube
 const fontLoader = new THREE.FontLoader();
-const textMaterial = new THREE.MeshPhongMaterial({ color: 0xffffff, shininess: 100, specular: 0x111111 });
-fontLoader.load('https://threejs.org/examples/fonts/helvetiker_regular.typeface.json', function (font) {
-  const textGeometry = new THREE.TextGeometry('HOME', {
-    font: font,
-    size: 2,
-    height: 0.5,
-    curveSegments: 12,
-    bevelEnabled: true,
-    bevelThickness: 0.1,
-    bevelSize: 0.1,
-    bevelOffset: 0,
-    bevelSegments: 5
-  });
-  const textMeshFront = new THREE.Mesh(textGeometry, textMaterial);
-  // position text in the middle of the cube
-  textMeshFront.position.x = -2.5;
-  textMeshFront.position.y = 0;
-  textMeshFront.position.z = 7.5;
-
-cube.add(textMeshFront);
+const textMaterial = new THREE.MeshPhongMaterial({
+  color: 0xffffff,
+  shininess: 100,
+  specular: 0x111111,
 });
+fontLoader.load(
+  "https://threejs.org/examples/fonts/helvetiker_regular.typeface.json",
+  function (font) {
+    const textGeometry = new THREE.TextGeometry("HOME", {
+      font: font,
+      size: 2,
+      height: 0.5,
+      curveSegments: 12,
+      bevelEnabled: true,
+      bevelThickness: 0.1,
+      bevelSize: 0.1,
+      bevelOffset: 0,
+      bevelSegments: 5,
+    });
+    const textMeshFront = new THREE.Mesh(textGeometry, textMaterial);
+    // position text in the middle of the cube
+    textMeshFront.position.x = -2.5;
+    textMeshFront.position.y = 0;
+    textMeshFront.position.z = 7.5;
 
+    cube.add(textMeshFront);
+  }
+);
 
 function animate() {
   requestAnimationFrame(animate);
@@ -81,13 +110,13 @@ function animate() {
 animate();
 
 // Add click event listener to the cube
-const canvas = document.getElementsByTagName('canvas')[0];
-canvas.addEventListener('click', () => {
-  window.location.href = 'index.html';
+const canvas = document.getElementsByTagName("canvas")[0];
+canvas.addEventListener("click", () => {
+  window.location.href = "index.html";
 });
 
 // zoom in and out with mouse wheel
-canvas.addEventListener('wheel', (event) => {
+canvas.addEventListener("wheel", (event) => {
   if (event.deltaY > 0) {
     camera.position.z += 1;
   } else {
@@ -95,10 +124,8 @@ canvas.addEventListener('wheel', (event) => {
   }
 });
 
-
-
 // Resize window
-window.addEventListener('resize', () => {
+window.addEventListener("resize", () => {
   renderer.setSize(window.innerWidth, window.innerHeight);
   camera.aspect = window.innerWidth / window.innerHeight;
   camera.updateProjectionMatrix();
