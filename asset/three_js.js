@@ -10,16 +10,12 @@ const renderer = new THREE.WebGLRenderer({ antialias: true });
 renderer.setSize(window.innerWidth, window.innerHeight);
 document.body.appendChild(renderer.domElement);
 
-
-
-
 const colorRed = new THREE.Color(0xff0000);
 const colorGreen = new THREE.Color(0x00ff00);
 const colorBlue = new THREE.Color(0x0000ff);
 const colorYellow = new THREE.Color(0xffff00);
 const colorMagenta = new THREE.Color(0xff00ff);
 const colorCyan = new THREE.Color(0x00ffff);
-
 const cubeMaterials = [
   new THREE.MeshPhongMaterial({
     color: colorRed,
@@ -53,18 +49,16 @@ const cubeMaterials = [
   }), // Right
 ];
 
-
 const cubeGeometry = new THREE.BoxGeometry(15, 15, 15);
 const cube = new THREE.Mesh(cubeGeometry, cubeMaterials);
 cube.position.set(0, 10, -50); // set cube position
 scene.add(cube);
 
-
 const geometry = new THREE.TorusKnotGeometry( 20, 3, 100, 16 );
 const material = new THREE.MeshBasicMaterial( { color: 0x000000, opacity: 0.7, wireframe: true, side: THREE.DoubleSide } );
 const torusKnot = new THREE.Mesh( geometry, material );
 
-torusKnot.position.set(0, -50, -100); // set cube position
+torusKnot.position.set(0, -50, -100); // set torus position
 scene.add( torusKnot );
 
 function animate_torus () {
@@ -77,7 +71,6 @@ function animate_torus () {
 }
 
 animate_torus();
-
 
 const light = new THREE.PointLight(0xffffff, 1, 100);
 light.position.set(20, 20, 20);
@@ -116,17 +109,14 @@ fontLoader.load(
     textMeshFront.position.x = -2.5;
     textMeshFront.position.y = 0;
     textMeshFront.position.z = 7.5;
-
     cube.add(textMeshFront);
   }
 );
 
 function animate() {
   requestAnimationFrame(animate);
-
   cube.rotation.x += 0.01;
   cube.rotation.y += 0.01;
-
   renderer.render(scene, camera);
 }
 animate();
@@ -147,11 +137,10 @@ canvas.addEventListener("wheel", (event) => {
   light.position.x = camera.position.x;
   light.position.z = camera.position.z;
   console.log(camera.position);
+//  change light intensity with camera position
+  light.intensity = Math.max(1, camera.position.x);
 
-  
 });
-
-
 
 // Resize window
 window.addEventListener("resize", () => {
